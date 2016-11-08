@@ -1,0 +1,12 @@
+statsd:
+  image: turistforeningen/statsd-librato
+  expose:
+    - "8125/udp"
+  volumes_from:
+    - secrets:ro
+  restart: always
+
+secrets:
+  image: turistforeningen/statsd-librato-secrets:v1
+  volumes:
+    - /secrets
